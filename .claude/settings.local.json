@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(node build.js:*)",
-      "Bash(xcopy:*)"
+      "Bash(xcopy:*)",
+      "Bash(git config:*)",
+      "Bash(nul)"
     ],
     "deny": [],
     "ask": []

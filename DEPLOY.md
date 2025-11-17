@@ -1,24 +1,75 @@
-# Deployment Guide for Google Sites
+# Deployment Guide for GitHub Pages
 
-## Build the Project
+## Your Repository
+- **Remote**: https://github.com/phuc1111x/wedding_site.git
+- **Live URL**: https://phuc1111x.github.io/wedding_site/
 
-Run this command to create a single bundled HTML file:
+## Step 1: Build the Project
 
 ```bash
-npm run build
-# or
 node build.js
 ```
 
-This creates `dist/wedding-invitation-bundle.html` with all CSS and JS inlined.
+This creates the `dist` folder with:
+- `wedding-invitation-bundle.html` (main file with inlined CSS/JS)
+- `assets/` folder (all images and audio)
 
-## Option 1: GitHub Pages (Recommended)
+## Step 2: Deploy to GitHub Pages
 
-1. Create a GitHub repository
-2. Upload the entire `dist` folder (or just the bundle file)
-3. Go to Settings > Pages
-4. Set source to "main" branch
-5. Your site will be at: `https://yourusername.github.io/repo-name/wedding-invitation-bundle.html`
+### Option A: Deploy only dist folder (Recommended)
+
+1. **Create gh-pages branch from dist folder:**
+```bash
+git add dist -f
+git commit -m "Add dist folder for deployment"
+git subtree push --prefix dist origin gh-pages
+```
+
+2. **Enable GitHub Pages:**
+   - Go to https://github.com/phuc1111x/wedding_site/settings/pages
+   - Source: Select "Deploy from a branch"
+   - Branch: Select "gh-pages" and "/ (root)"
+   - Click Save
+
+3. **Your site will be at:**
+   - https://phuc1111x.github.io/wedding_site/wedding-invitation-bundle.html
+
+### Option B: Deploy entire project
+
+1. **Push all files to main:**
+```bash
+git add .
+git commit -m "Update wedding site"
+git push origin main
+```
+
+2. **Enable GitHub Pages:**
+   - Go to https://github.com/phuc1111x/wedding_site/settings/pages
+   - Source: Select "Deploy from a branch"
+   - Branch: Select "main" and "/dist"
+   - Click Save
+
+3. **Your site will be at:**
+   - https://phuc1111x.github.io/wedding_site/wedding-invitation-bundle.html
+
+## Step 3: Update After Changes
+
+After making changes, rebuild and redeploy:
+
+```bash
+# Rebuild
+node build.js
+
+# If using Option A (gh-pages branch):
+git add dist -f
+git commit -m "Update dist"
+git subtree push --prefix dist origin gh-pages
+
+# If using Option B (main branch):
+git add .
+git commit -m "Update site"
+git push origin main
+```
 
 ## Option 2: Netlify (Easy)
 
