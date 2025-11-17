@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node build.js:*)",
+      "Bash(xcopy:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "wedding-invitation",
+  "version": "1.0.0",
+  "description": "Wedding invitation website",
+  "main": "wedding-invitation.html",
+  "scripts": {
+    "build": "node build.js",
+    "start": "start wedding-invitation.html"
+  },
+  "author": "",
+  "license": "MIT"
+}
